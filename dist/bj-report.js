@@ -18,7 +18,7 @@ var BJ_REPORT = (function(global) {
         }
 
         if(_isOBJByType(newMsg , "Event")){
-            newMsg += newMsg.type?('--'+newMsg.type +'--' + (newMsg.target ? (newMsg.target.tagName + "--" + newMsg.target.src):"")) : "";
+            newMsg += newMsg.type?('--'+newMsg.type +'--' + (newMsg.target ? (newMsg.target.tagName + "::" + newMsg.target.src):"")) : "";
         }
 
         report.push({
@@ -226,7 +226,7 @@ var BJ_REPORT = (function(global) {
             // 没有设置id将不上报
             var id = parseInt(_config.id, 10);
             if (id) {
-                _config.report = (_config.url || "http://badjs2.qq.com/badjs") + "?id=" + id + "&uin=" + parseInt(_config.uin || (document.cookie.match(/\buin=\D+(\d+)/) || [])[1], 10) + "&from=" + encodeURIComponent(location.href) + "&ext=" + JSON.stringify(_config.ext) +"&";
+                _config.report = (_config.url || "http://badjs.vip.qq.com/badjs") + "?id=" + id + "&uin=" + parseInt(_config.uin || (document.cookie.match(/\buin=\D+(\d+)/) || [])[1], 10) + "&from=" + encodeURIComponent(location.href) + "&ext=" + JSON.stringify(_config.ext) +"&";
             }
             return report;
         },
